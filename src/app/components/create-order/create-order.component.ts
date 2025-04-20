@@ -30,7 +30,7 @@ export class CreateOrderComponent implements OnInit {
         this.successMessage = 'Order created successfully!';
         console.log(response);
         this.errorMessage = '';
-        setTimeout(() => this.router.navigate(['/admin/view-orders']), 2000);
+        setTimeout(() => this.router.navigate(['/vendor/view-orders']), 2000);
       },
       error: (err) => {
         this.errorMessage = 'Failed to create order';

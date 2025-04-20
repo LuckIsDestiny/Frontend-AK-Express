@@ -5,12 +5,12 @@ import { OrderService } from '../../services/order.service';
 import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-dashboard',
+  selector: 'app-vendor-dashboard',
   imports: [RouterOutlet, CommonModule, FormsModule],
-  templateUrl: './admin-dashboard.component.html',
-  styleUrl: './admin-dashboard.component.css'
+  templateUrl: './vendor-dashboard.component.html',
+  styleUrl: './vendor-dashboard.component.css'
 })
-export class AdminDashboardComponent {
+export class VendorDashboardComponent {
   orders: any[] = [];
   errorMessage: string = '';
 
@@ -36,16 +36,16 @@ export class AdminDashboardComponent {
 
   // Navigate to create order page
   goToCreateOrder() {
-    this.router.navigate(['/admin/create-order']);
+    this.router.navigate(['/vendor/create-order']);
   }
 
   // Navigate to assign order page
   goToAssignOrder() {
-    this.router.navigate(['/admin/assign-order']);
+    this.router.navigate(['/vendor/assign-order']);
   }
 
   // Navigate to all orders page
   goToAllOrders() {
-    this.router.navigate(['/admin/view-orders']);
+    this.router.navigate(['/vendor/view-orders']);
   }
 }

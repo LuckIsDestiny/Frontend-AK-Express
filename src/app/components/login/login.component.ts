@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -27,7 +27,7 @@ export class LoginComponent {
         console.log("Login Response:", JSON.stringify(response, null, 2)) // Format response object for readable logging
         this.cookieService.set('token', response.token);
         this.authService.setUser(response.user); // Optional setter for userSubject
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/vendor']);
       },
       error: (error) => {
         this.errorMessage = 'Invalid email or password';

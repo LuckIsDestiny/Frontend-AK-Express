@@ -14,8 +14,7 @@
       <label for="role">Role:</label>
       <select id="role" [(ngModel)]="role" name="role" required>
         <option value="">Select a role</option>
-        <option value="Admin">Admin</option>
-        <option value="User">User</option>
+        <option value="Vendor">Vendor</option>
         <option value="DeliveryAgent">DeliveryAgent</option>
       </select>
     </div>
@@ -33,4 +32,8 @@
     }
     <button type="submit">Register</button>
   </form>
+
+  <div class="login-section">
+    <p>Already registered? <a [routerLink]="['/login']" routerLinkActive="active">Login here</a></p>
+  </div>
 </div>

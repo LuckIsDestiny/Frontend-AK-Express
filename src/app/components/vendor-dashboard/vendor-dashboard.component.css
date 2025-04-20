@@ -1,4 +1,4 @@
-.admin-dashboard {
+.vendor-dashboard {
     padding: 30px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #ffffff;
@@ -9,7 +9,7 @@
     margin: 0 auto;
 }
 
-.admin-dashboard h2 {
+.vendor-dashboard h2 {
     font-size: 32px;
     margin-bottom: 24px;
     color: #1a1a1a;
