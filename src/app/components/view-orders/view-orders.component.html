@@ -1,0 +1,42 @@
+<div class="view-orders">
+    <h2>View Orders</h2>
+  
+    <!-- Error Message Display -->
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Orders Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Vendor</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Payment Amount</th>
+          <th>Payment Status</th>
+          <th>Payment Method</th>
+          <th>Assigned To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.vendorName }}</td>
+          <td>{{ order.customerName }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.payment.amount }}</td>
+          <td>{{ order.payment.status }}</td>
+          <td>{{ order.payment.method }}</td>
+          <td>{{ order.assignedTo?.name || 'Unassigned' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- No Orders Message -->
+    <div *ngIf="orders.length === 0" class="no-orders">
+      No orders found
+    </div>
+  </div>
+  
