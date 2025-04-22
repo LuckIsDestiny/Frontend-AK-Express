@@ -26,8 +26,13 @@ export class LoginComponent {
       next: (response: any) => {
         console.log("Login Response:", JSON.stringify(response, null, 2)) // Format response object for readable logging
         this.cookieService.set('token', response.token);
-        this.authService.setUser(response.user); // Optional setter for userSubject
-        this.router.navigate(['/vendor']);
+        this.authService.setUser(response.user);
+        const role = response.user.role;
+        if (role === 'Vendor') {
+          this.router.navigate(['/vendor']);
+        } else if (role === 'DeliveryAgent') {
+          this.router.navigate(['/delivery']);
+        }
       },
       error: (error) => {
         this.errorMessage = 'Invalid email or password';

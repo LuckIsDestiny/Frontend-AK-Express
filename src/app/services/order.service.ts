@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -36,6 +37,35 @@ export class OrderService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get<any[]>(`${this.apiUrl}/agents/all`, { headers });
+  }
+
+  getDeliveryAgentId() {
+    const token = this.getCookie('token');
+    if (token) {
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      return decodedToken.userId;
+    }
+  }
+  getRole() {
+    const token = this.getCookie('token');
+    if (token) {
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      return decodedToken.role;
+    }
+  }
+
+  getOrdersById(deliveryAgentId: any) {
+    const token = this.getCookie('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(`${this.apiUrl}/my-orders/${deliveryAgentId}`, { headers });
+  }
+
+  updateOrderStatus(orderId: any, status: any) {
+    const token = this.getCookie('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put<any>(`${this.apiUrl}/status`, { orderId: orderId, status: status }, { headers });
   }
 
   getCookie(name: string): string {

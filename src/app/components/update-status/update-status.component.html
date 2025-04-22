@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Update Order Status</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Current Status</th>
+        <th>Total Amount</th>
+        <th>Update Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{order.orderId}}</td>
+        <td>{{order.customerName}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.payment.amount}}</td>
+        <td>
+          <select [(ngModel)]="status" class="form-control">
+            <option value="Assigned">Assigned</option>
+            <option value="Out for Delivery">Out for Delivery</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="updateStatus(order.orderId)">
+            Update Status
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+</div>

@@ -17,7 +17,7 @@
           <th>Payment Amount</th>
           <th>Payment Status</th>
           <th>Payment Method</th>
-          <th>Assigned To</th>
+          <th *ngIf="role !== 'DeliveryAgent'">Assigned To</th>
         </tr>
       </thead>
       <tbody>
@@ -29,7 +29,7 @@
           <td>{{ order.payment.amount }}</td>
           <td>{{ order.payment.status }}</td>
           <td>{{ order.payment.method }}</td>
-          <td>{{ order.assignedTo?.name || 'Unassigned' }}</td>
+          <td *ngIf="role !== 'DeliveryAgent'">{{ order.assignedTo?.name || 'Unassigned' }}</td>
         </tr>
       </tbody>
     </table>

@@ -7,6 +7,7 @@ import { DeliveryDashboardComponent } from "./components/delivery-dashboard/deli
 import { AssignOrderComponent } from "./components/assign-order/assign-order.component";
 import { CreateOrderComponent } from "./components/create-order/create-order.component";
 import { ViewOrdersComponent } from "./components/view-orders/view-orders.component";
+import { UpdateStatusComponent } from "./components/update-status/update-status.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,5 +24,13 @@ export const routes: Routes = [
       { path: '', redirectTo: 'view-orders', pathMatch: 'full' }
     ]
   },
-  { path: 'delivery', component: DeliveryDashboardComponent, canActivate: [AuthGuard] }
+  { path: 'delivery',
+    component: DeliveryDashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'view-orders', component: ViewOrdersComponent },
+      { path: 'update-status', component: UpdateStatusComponent },
+      { path: '', redirectTo: 'view-orders', pathMatch: 'full' }
+    ]
+  }
 ];
