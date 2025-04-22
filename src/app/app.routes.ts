@@ -3,10 +3,10 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { VendorDashboardComponent } from "./components/vendor-dashboard/vendor-dashboard.component";
 import { AuthGuard } from "./guards/auth.guard";
-import { CreateOrderComponent } from "./components/create-order/create-order.component";
-import { AssignOrderComponent } from "./components/assign-order/assign-order.component";
-import { ViewOrdersComponent } from "./components/view-orders/view-orders.component";
 import { DeliveryDashboardComponent } from "./components/delivery-dashboard/delivery-dashboard.component";
+import { AssignOrderComponent } from "./components/assign-order/assign-order.component";
+import { CreateOrderComponent } from "./components/create-order/create-order.component";
+import { ViewOrdersComponent } from "./components/view-orders/view-orders.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },

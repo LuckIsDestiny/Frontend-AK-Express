@@ -1,1 +1,36 @@
-<p>assign-order works!</p>
+<div class="container">
+  <h2>Orders List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Order Status</th>
+        <th>Total Amount</th>
+        <th>Assign To</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{order.id}}</td>
+        <td>{{order.customerName}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.totalAmount}}</td>
+        <td>
+          <select [(ngModel)]="assignmentData.deliveryAgentId" class="form-control">
+            <option value="">Select Delivery Agent</option>
+            <option *ngFor="let agent of deliveryAgents" [value]="agent._id">
+              {{agent.name}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="assignmentData.orderId = order.orderId; assignOrder()">
+            Assign Order
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

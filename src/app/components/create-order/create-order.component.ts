@@ -15,7 +15,13 @@ export class CreateOrderComponent implements OnInit {
     orderId: '',
     vendorName: '',
     customerName: '',
-    address: ''
+    address: '',
+    payment: {
+      amount: '',
+      method: '',
+      status: 'Pending',
+      transactionId: ''
+    }
   };
   errorMessage: string = '';
   successMessage: string = '';

@@ -15,7 +15,7 @@ export class AuthService {
 
   private http = inject(HttpClient);
   private router = inject(Router);
-  private cookieService = inject(CookieService);  // 👈 No AppModule needed
+  private cookieService = inject(CookieService);
 
   register(user: User) {
     return this.http.post(`${this.apiUrl}/register`, user);
@@ -27,12 +27,11 @@ export class AuthService {
 
   setUser(user: any) {
     this.userSubject.next(user);
-  }  
+  }
 
   logout() {
-    this.cookieService.delete('token');
+    this.cookieService.delete('token', '/', 'localhost');
     this.userSubject.next(null);
-    this.router.navigate(['/login']);
   }
 
   getToken(): string {

@@ -1,18 +1,6 @@
 <div class="container mt-4">
   <h2>Create New Order</h2>
 
-  @if (successMessage) {
-  <div class="alert alert-success">
-    {{successMessage}}
-  </div>
-  }
-
-  @if (errorMessage) {
-  <div class="alert alert-danger">
-    {{errorMessage}}
-  </div>
-  }
-
   <form (ngSubmit)="createOrder()" #orderForm="ngForm">
     <div class="mb-3">
       <label for="orderId" class="form-label">Order ID</label>
@@ -37,6 +25,49 @@
         required></textarea>
     </div>
 
+    <div class="mb-3">
+      <label for="amount" class="form-label">Payment Amount</label>
+      <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="orderData.payment.amount"
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Payment Status</label>
+      <select class="form-select" id="status" name="status" [(ngModel)]="orderData.payment.status" required>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+        <option value="Failed">Failed</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="method" class="form-label">Payment Method</label>
+      <select class="form-select" id="method" name="method" [(ngModel)]="orderData.payment.method" required>
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="UPI">UPI</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="transactionId" class="form-label">Transaction ID</label>
+      <input type="text" class="form-control" id="transactionId" name="transactionId"
+        [(ngModel)]="orderData.payment.transactionId" required>
+    </div>
+
     <button type="submit" class="btn btn-primary">Create Order</button>
   </form>
+
+  @if (successMessage) {
+  <div class="alert alert-success">
+    {{successMessage}}
+  </div>
+  }
+
+  @if (errorMessage) {
+  <div class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+  }
+
 </div>
