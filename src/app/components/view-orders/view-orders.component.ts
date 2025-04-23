@@ -14,7 +14,9 @@ export class ViewOrdersComponent implements OnInit {
   errorMessage: string = '';
   role: string = '';
 
-  constructor(private orderService: OrderService) { this.role = this.orderService.getRole(); }
+  constructor(private orderService: OrderService) { 
+    this.role = this.orderService.getRole(); 
+  }
 
   ngOnInit(): void {
     this.fetchOrders();
@@ -22,7 +24,7 @@ export class ViewOrdersComponent implements OnInit {
 
   // Fetch orders from the backend
   fetchOrders() {
-    if (this.role === 'Vendor') {
+    if (this.role === 'Vendor' || this.role === 'Admin') {
       this.orderService.getAllOrders().subscribe({
         next: (data) => {
           this.orders = data;

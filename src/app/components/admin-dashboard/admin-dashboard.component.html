@@ -1,0 +1,16 @@
+<div class="admin-dashboard">
+    <h2>Admin Dashboard</h2>
+
+    <nav class="nav">
+        <button (click)="goToCreateOrder()">Create Order</button>
+        <button (click)="goToAssignOrder()">Assign Order</button>
+        <button (click)="goToAllOrders()">View Orders</button>
+        <button (click)="logout()">Logout</button>
+    </nav>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

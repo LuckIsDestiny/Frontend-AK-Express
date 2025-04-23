@@ -32,6 +32,8 @@ export class LoginComponent {
           this.router.navigate(['/vendor']);
         } else if (role === 'DeliveryAgent') {
           this.router.navigate(['/delivery']);
+        } else if (role === 'Admin') {
+          this.router.navigate(['/admin']);
         }
       },
       error: (error) => {

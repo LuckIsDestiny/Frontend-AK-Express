@@ -48,9 +48,9 @@ export class VendorDashboardComponent implements OnInit {
   }
 
   // Navigate to assign order page
-  goToAssignOrder() {
-    this.router.navigate(['/vendor/assign-order']);
-  }
+  // goToAssignOrder() {
+  //   this.router.navigate(['/vendor/assign-order']);
+  // }
 
   // Navigate to all orders page
   goToAllOrders() {

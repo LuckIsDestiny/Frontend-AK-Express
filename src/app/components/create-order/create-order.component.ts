@@ -25,10 +25,13 @@ export class CreateOrderComponent implements OnInit {
   };
   errorMessage: string = '';
   successMessage: string = '';
+  role: string = '';
 
-  constructor(private orderService: OrderService, private router: Router) {}
+  constructor(private orderService: OrderService, private router: Router) {
+    this.role = this.orderService.getRole();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   createOrder() {
     this.orderService.createOrder(this.orderData).subscribe({
@@ -36,7 +39,13 @@ export class CreateOrderComponent implements OnInit {
         this.successMessage = 'Order created successfully!';
         console.log(response);
         this.errorMessage = '';
-        setTimeout(() => this.router.navigate(['/vendor/view-orders']), 2000);
+        setTimeout(() => {
+          if (this.role === 'Vendor') {
+            this.router.navigate(['/vendor/view-orders'])
+          } else if (this.role === 'Admin') {
+            this.router.navigate(['/admin/view-orders']);
+          }
+        }, 2000);
       },
       error: (err) => {
         this.errorMessage = 'Failed to create order';

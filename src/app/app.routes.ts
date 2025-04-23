@@ -8,6 +8,7 @@ import { AssignOrderComponent } from "./components/assign-order/assign-order.com
 import { CreateOrderComponent } from "./components/create-order/create-order.component";
 import { ViewOrdersComponent } from "./components/view-orders/view-orders.component";
 import { UpdateStatusComponent } from "./components/update-status/update-status.component";
+import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,7 +20,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'create-order', component: CreateOrderComponent },
-      { path: 'assign-order', component: AssignOrderComponent },
+      // { path: 'assign-order', component: AssignOrderComponent },
       { path: 'view-orders', component: ViewOrdersComponent },
       { path: '', redirectTo: 'view-orders', pathMatch: 'full' }
     ]
@@ -32,5 +33,16 @@ export const routes: Routes = [
       { path: 'update-status', component: UpdateStatusComponent },
       { path: '', redirectTo: 'view-orders', pathMatch: 'full' }
     ]
-  }
+  },
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'create-order', component: CreateOrderComponent },
+      { path: 'assign-order', component: AssignOrderComponent },
+      { path: 'view-orders', component: ViewOrdersComponent },
+      { path: '', redirectTo: 'view-orders', pathMatch: 'full' }
+    ]
+  },
 ];
