@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Orders List</h2>
   <table class="table">
     <thead>
@@ -31,6 +31,46 @@
           </button>
         </td>
       </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<div class="container mt-4 p-4 border rounded bg-light shadow-sm">
+  <h2 class="mb-4">Orders List</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Order Status</th>
+        <th>Total Amount</th>
+        <th>Assign To</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of orders; track order._id) {
+        <tr>
+          <td>{{order.orderId}}</td>
+          <td>{{order.customerName}}</td>
+          <td>{{order.status}}</td>
+          <td>{{order.payment.amount}}</td>
+          <td>
+            <select [(ngModel)]="assignmentData.deliveryAgentId" class="form-select">
+              <option value="">Select Delivery Agent</option>
+              @for (agent of deliveryAgents; track agent._id) {
+                <option [value]="agent._id">{{agent.name}}</option>
+              }
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-success" (click)="assignmentData.orderId = order.orderId; assignOrder()">Assign
+              Order</button>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

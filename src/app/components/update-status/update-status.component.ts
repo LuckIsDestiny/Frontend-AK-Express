@@ -14,6 +14,7 @@ export class UpdateStatusComponent {
   orderId: string = '';
   orders: any[] = [];
   errorMessage: string = '';
+  successMessage: string = '';
   status: 'Assigned' | 'Out for Delivery' | 'Delivered' = 'Assigned';
 
   constructor(private http: HttpClient, private orderService: OrderService) {
@@ -27,11 +28,13 @@ export class UpdateStatusComponent {
     this.orderService.updateOrderStatus(this.orderId, this.status).subscribe({
       next: (response: any) => {
         console.log('Status updated successfully', response);
+        this.successMessage = 'Status updated successfully';
         // Reload orders after status update
         this.loadOrders();
       },
       error: (error) => {
         console.error('Failed to update status', error);
+        this.errorMessage = 'Failed to update status';
       }
     });
   }

@@ -1,5 +1,4 @@
-/* Enhanced container with smoother shadow and subtle gradient */
-.container {
+/* .container {
   max-width: 800px;
   padding: 2.5rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -7,7 +6,6 @@
   background: linear-gradient(to bottom, #ffffff, #fafafa);
 }
 
-/* Improved heading style */
 h2 {
   color: #2c3e50;
   margin-bottom: 2.5rem;
@@ -17,7 +15,6 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-/* Enhanced form label visibility */
 .form-label {
   color: #2c3e50;
   font-weight: 600;
@@ -25,7 +22,6 @@ h2 {
   letter-spacing: 0.3px;
 }
 
-/* Improved form control with better visual feedback */
 .form-control, .form-select {
   border: 2px solid #e9ecef;
   border-radius: 8px;
@@ -40,14 +36,12 @@ h2 {
   outline: none;
 }
 
-/* Enhanced textarea */
 textarea.form-control {
   resize: vertical;
   min-height: 120px;
   line-height: 1.5;
 }
 
-/* Improved button styling */
 .btn-primary {
   background-color: #3498db;
   border: none;
@@ -67,7 +61,6 @@ textarea.form-control {
   box-shadow: 0 8px 20px rgba(52,152,219,0.35);
 }
 
-/* Enhanced alert styles */
 .alert {
   border-radius: 8px;
   padding: 1.25rem;
@@ -98,7 +91,6 @@ textarea.form-control {
   margin-top: 2.5rem;
 }
 
-/* Responsive improvements */
 @media (max-width: 768px) {
   .container {
     padding: 1.5rem;
@@ -118,4 +110,4 @@ textarea.form-control {
   .form-control, .form-select {
     padding: 0.75rem;
   }
-}
+} */

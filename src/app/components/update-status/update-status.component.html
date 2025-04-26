@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Update Order Status</h2>
   <table class="table">
     <thead>
@@ -35,5 +35,52 @@
 
   <div *ngIf="errorMessage" class="alert alert-danger">
     {{errorMessage}}
+  </div>
+</div> -->
+
+
+<div class="container mt-4 p-4 border rounded bg-light shadow-sm">
+  <h2 class="mb-4">Update Order Status</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Current Status</th>
+        <th>Total Amount</th>
+        <th>Update Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of orders; track order._id) {
+      <tr>
+        <td>{{order.orderId}}</td>
+        <td>{{order.customerName}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.payment.amount}}</td>
+        <td>
+          <select [(ngModel)]="status" class="form-select">
+            <option value="Assigned">Assigned</option>
+            <option value="Out for Delivery">Out for Delivery</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="updateStatus(order.orderId)">
+            Update Status
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{errorMessage}}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{successMessage}}
   </div>
 </div>

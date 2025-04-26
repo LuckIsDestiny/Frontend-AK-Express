@@ -1,4 +1,4 @@
-<div class="register-container">
+<!-- <div class="register-container">
   <h2>Register</h2>
 
   <form (submit)="register()">
@@ -36,5 +36,60 @@
 
   <div class="login-section">
     <p>Already registered? <a [routerLink]="['/login']" routerLinkActive="active">Login here</a></p>
+  </div>
+</div> -->
+
+
+<div class="register-container container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow border rounded p-4">
+        <h2 class="text-center mb-4">Register</h2>
+
+        <form (submit)="register()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="varchar" id="name" [(ngModel)]="name" name="name" required class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="role" class="form-label">Role:</label>
+            <select id="role" [(ngModel)]="role" name="role" required class="form-select">
+              <option value="">Select a role</option>
+              <option value="Vendor">Vendor</option>
+              <option value="Admin">Admin</option>
+              <option value="DeliveryAgent">DeliveryAgent</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password:</label>
+            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required class="form-control" />
+          </div>
+
+          @if (errorMessage) {
+          <div class="alert alert-danger">{{ errorMessage }}</div>
+          }
+
+          <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+
+        <div class="login-section text-center mt-3">
+          <p>Already registered? 
+            <a [routerLink]="['/login']" routerLinkActive="active">Login here</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

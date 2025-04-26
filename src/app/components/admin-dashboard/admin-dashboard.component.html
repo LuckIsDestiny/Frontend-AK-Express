@@ -1,4 +1,4 @@
-<div class="admin-dashboard">
+<!-- <div class="admin-dashboard">
     <h2>Admin Dashboard</h2>
 
     <nav class="nav">
@@ -6,6 +6,23 @@
         <button (click)="goToAssignOrder()">Assign Order</button>
         <button (click)="goToAllOrders()">View Orders</button>
         <button (click)="logout()">Logout</button>
+    </nav>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+
+    <router-outlet></router-outlet>
+</div> -->
+
+<div class="container mt-4 p-4 border rounded bg-light shadow-sm">
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <nav class="mb-4 d-flex gap-2">
+        <button class="btn btn-primary" (click)="goToCreateOrder()">Create Order</button>
+        <button class="btn btn-secondary" (click)="goToAssignOrder()">Assign Order</button>
+        <button class="btn btn-info" (click)="goToAllOrders()">View Orders</button>
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
     </nav>
 
     <div class="alert alert-danger" *ngIf="errorMessage">

@@ -1,10 +1,27 @@
-<div class="delivery-dashboard">
+<!-- <div class="delivery-dashboard">
   <h2>Delivery Dashboard</h2>
 
   <nav class="nav">
     <button (click)="goToUpdateOrderStatus()">Update Order Status</button>
     <button (click)="goToMyOrders()">View Orders</button>
     <button (click)="logout()">Logout</button>
+  </nav>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <router-outlet></router-outlet>
+</div> -->
+
+
+<div class="container mt-4 p-4 border rounded bg-light shadow-sm">
+  <h2 class="mb-4">Delivery Dashboard</h2>
+
+  <nav class="mb-4 d-flex gap-2">
+    <button class="btn btn-primary" (click)="goToUpdateOrderStatus()">Update Order Status</button>
+    <button class="btn btn-info" (click)="goToMyOrders()">View Assigned Orders</button>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
   </nav>
 
   <div class="alert alert-danger" *ngIf="errorMessage">

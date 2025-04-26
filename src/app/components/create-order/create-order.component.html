@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<!-- <div class="container mt-4">
   <h2>Create New Order</h2>
 
   <form (ngSubmit)="createOrder()" #orderForm="ngForm">
@@ -70,4 +70,74 @@
   </div>
   }
 
+</div> -->
+
+<div class="container mt-4 p-4 border rounded bg-light shadow-sm">
+  <h2 class="mb-4">Create New Order</h2>
+
+  <form (ngSubmit)="createOrder()" #orderForm="ngForm">
+    <!-- Input Fields -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="orderId" class="form-label">Order ID</label>
+        <input type="text" class="form-control" id="orderId" name="orderId" [(ngModel)]="orderData.orderId" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="vendorName" class="form-label">Vendor Name</label>
+        <input type="text" class="form-control" id="vendorName" name="vendorName" [(ngModel)]="orderData.vendorName"
+          required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="customerName" class="form-label">Customer Name</label>
+      <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="orderData.customerName"
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <textarea class="form-control" id="address" name="address" rows="3" [(ngModel)]="orderData.address"
+        required></textarea>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="amount" class="form-label">Payment Amount</label>
+        <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="orderData.payment.amount"
+          required>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="status" class="form-label">Payment Status</label>
+        <select class="form-select" id="status" name="status" [(ngModel)]="orderData.payment.status" required>
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+          <option value="Failed">Failed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="method" class="form-label">Payment Method</label>
+        <select class="form-select" id="method" name="method" [(ngModel)]="orderData.payment.method" required>
+          <option value="Cash">Cash</option>
+          <option value="Card">Card</option>
+          <option value="UPI">UPI</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="transactionId" class="form-label">Transaction ID</label>
+        <input type="text" class="form-control" id="transactionId" name="transactionId"
+          [(ngModel)]="orderData.payment.transactionId" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Order</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
 </div>
